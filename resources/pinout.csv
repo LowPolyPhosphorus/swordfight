@@ -7,4 +7,4 @@ Sword ESP32-C3,GPIO9,HW-123 SCL,I2C clock
 Sword ESP32-C3,GPIO5,WS2812B DIN,LED data
 Sword ESP32-C3,5V,Battery pack + (via 2 holders in series),Board power
 Sword ESP32-C3,GND,Battery pack -,Board power ground
-WS2812B,5V,Battery pack + (same 6V line, no diode - test at moderate brightness),LED power
+WS2812B,5V,"Battery pack + (same 6V line, no diode - test at moderate brightness)",LED power
