@@ -8,6 +8,3 @@ Sword ESP32,GPIO5,WS2812B DIN,LED data
 Sword ESP32,5V/VIN,WS2812B 5V,LED power
 Sword ESP32,5V/VIN,Battery +,Battery power
 Sword ESP32,GND,Battery -,Battery ground
-Hub ESP32,GPIO5,WS2812B DIN,LED data
-Hub ESP32,5V/VIN,WS2812B 5V,LED power
-Hub ESP32,GND,WS2812B GND,Ground
