@@ -1,5 +1,5 @@
-// sword_led_mpu_s3.ino
-// ESP32-S3 version.
+// sword_led_mpu_devkitv1.ino
+// Sword 1 - classic ESP32 DevKit V1 version.
 // MPU6050 (Adafruit library) + FastLED, combined and non-blocking.
 //
 // Behavior:
@@ -23,11 +23,12 @@
 #include <Wire.h>
 #include <FastLED.h>
 
-#define LED_PIN     4     // GPIO4 on the ESP32-S3 sword per wiring CSV
-#define SDA_PIN     8     // GPIO8
-#define SCL_PIN     9     // GPIO9
+#define LED_PIN     5     // GPIO5 on the classic ESP32 DevKit V1 per wiring CSV
 #define NUM_LEDS    52    // match your actual strip length
 #define BRIGHTNESS  120   // keep moderate given the 6V power situation
+
+// DevKit V1 uses the default hardware I2C pins (GPIO21 SDA / GPIO22 SCL),
+// so no explicit pin defines are needed — plain Wire.begin() picks them up.
 
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
@@ -96,7 +97,7 @@ void setup() {
   Serial.begin(115200);
   while (!Serial) delay(10);
 
-  Wire.begin(SDA_PIN, SCL_PIN);
+  Wire.begin(); // DevKit V1 default I2C pins: GPIO21 SDA, GPIO22 SCL
 
   FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
   FastLED.setBrightness(BRIGHTNESS);
