@@ -152,8 +152,8 @@ void loop() {
     Serial.println(accelDelta);
   }
 
-  // ---- Rotation-driven hue drift ----
-  float gyroDeg = gyroMag * (180.0 / PI); // rad/s -> deg/s
+  
+  float gyroDeg = gyroMag * (180.0 / PI); 
   float hueSpeed = constrain(gyroDeg / gyroDegDivisor, 0.0, maxHueSpeed);
   hue += hueSpeed;
   if (hue >= 255.0) hue -= 255.0;
