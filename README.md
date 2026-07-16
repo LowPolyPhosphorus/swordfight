@@ -1,33 +1,29 @@
-# swordfight
-3 ESP32s, 2 swords + 1 hub. you swing, you clash, the hub keeps score. 
+# Swordfight
+An ESP32, a Xiao, and two MPU6040s. Swinging, clashing, and hitting makes the swords react.
 
-## how it detects hits
-each sword has an MPU6050 strapped in. when the blades clash, the accelerometer picks up a sharp spike (sudden stop = spike). no contact sensors hopefully it will just watch for the spike pattern. debounce it so one clash doesn't count as five. 
-
-## how scoring works
-a clash happens on both swords simultaneously (woah), so instead of "who hit first" (doesnt make sense for a clash) we would compare who swung harder (?) bigger impact magnitude wins that exchange. close calls (withinn ~10%?) = no winner, just a "clang", but nobody's combo breaks.
-
-winning streaks build a combo multiplier. lose a clash (or tie) and it resets, so momentum matters, you have to keep swinging hard to protect a streak.
-
-health bar drains based on clash losses, scaled by the other guy's combo. first to zero (or whoever's ahead when time's up) wins.
-
-## the lights
-each sword should get one like on the blade or something
-
-* idle color = which player 
-* pulses brighter as your combo builds 
-* flashes on impact
-* dims as you take damage, so the sword itself doubles as a health readout
+<img width="6090" height="1649" alt="IMG_7681" src="https://github.com/user-attachments/assets/21b0fd78-d26e-4448-8050-42fb9201b96e" />
 
 
-hub might get a strip too for a bigger shared health/score display, visible from far away.
+## Build/Hardware Overview:
+The ESP32/RP2040 devboard is under the hilt on the grip, with wires connecting it to two batteries on top of the hilt, with the MPUs on the base of the blade to detect motion. The LED strip runs on the blade in a straight line, and wired to the devboard. A button rests close to the devboard for turning off the sword.
 
-the mesh
-swords talk to the hub over ESP-NOW so theres no wifi router needed, low latency, works fine in a packed venue with either no wifi or its really bad :pf:
+<img width="4519" height="6260" alt="IMG_7685" src="https://github.com/user-attachments/assets/ce4a50ee-0c2e-45f2-a8b4-b9e7f7be8f86" />
+<img width="2630" height="4677" alt="IMG_7686 Background Removed" src="https://github.com/user-attachments/assets/364fbc0d-0a4d-4821-8533-2b7467827638" />
+<img width="6088" height="3425" alt="IMG_7683" src="https://github.com/user-attachments/assets/84a4650b-36f0-4f30-9030-f9e2e65c4665" />
 
-## stretch goals
 
-* laptop dashboard over websocket, live health/combo feed, like a sword visualizer on screen from like general orientation
-* sound effects of the speaker for clashes
-* integrate a web cam or something for position tracking on screen (maybe idk if there will be webcams there)
+## Behavior/Programming:
+The sword has an LED strip which displays different light depending on what is going on, has an MPU sensor to detect how fast it is going. The MPU sensor runs two different checks to detect something, rotation and acceleration. If the sword is rotating really fast and is moving a ton, the MPU will detect that and classify it for a swing. A simmilar process happens for detecting sudden stops.
+
+
+
+## Light Behavior Overview:
+The LEDs in the sword always have a gradient, and depending on how fast the sword is moving, the cycle moves faster. This is really noticable when you swing it. Additionally, if the sword has momentum and suddenly comes to a stop, it will flash white, indicating it hit something.
+
+<img width="4231" height="4145" alt="IMG_7684" src="https://github.com/user-attachments/assets/621af47f-1d43-4794-b41c-6107c8def067" />
+
+
+## Poster:
+
+<img width="1414" height="2000" alt="3 ESP32s, 2 swords + 1 hub  you swing, you clash, the hub keeps score" src="https://github.com/user-attachments/assets/4a2db413-d683-4e40-a210-a28471e4c345" />
 
