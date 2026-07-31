@@ -8,7 +8,6 @@ An ESP32, a Xiao, and two MPU6040s. Swinging, clashing, and hitting makes the sw
 The ESP32/RP2040 devboard is under the hilt on the grip, with wires connecting it to two batteries on top of the hilt, with the MPUs on the base of the blade to detect motion. The LED strip runs on the blade in a straight line, and wired to the devboard. A button rests close to the devboard for turning off the sword.
 
 <img width="4519" height="6260" alt="IMG_7685" src="https://github.com/user-attachments/assets/ce4a50ee-0c2e-45f2-a8b4-b9e7f7be8f86" />
-<img width="2630" height="4677" alt="IMG_7686 Background Removed" src="https://github.com/user-attachments/assets/364fbc0d-0a4d-4821-8533-2b7467827638" />
 <img width="6088" height="3425" alt="IMG_7683" src="https://github.com/user-attachments/assets/84a4650b-36f0-4f30-9030-f9e2e65c4665" />
 
 ## Materials
